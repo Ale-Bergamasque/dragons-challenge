@@ -1,13 +1,13 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import UnavailableImage from '../../assets/unavailable_image.jpg';
+import DragonCard from '../../components/DragonCard';
 import useUser from '../../hooks/useUser';
 import api from '../../services/api';
-import DragonCard from '../../components/DragonCard';
-import UnavailableImage from '../../assets/unavailable_image.jpg';
 import './styles.css';
 
 function Main() {
-    const { dragons } = useUser();
+    const { dragons, dragonDetail, setDragonDetail } = useUser();
     const navigate = useNavigate();
     const [paginationParam, setPaginationParam] = useState({});
     const paginationLimit = 8;
@@ -51,16 +51,18 @@ function Main() {
     //     e.target.value = ''
     // }
 
-    // async function handleProrductDetail(productId) {
-    //     try {
-    //         const product = await api().get(`/products/${productId}`);
-    //         setProductDetail(product.data);
+    async function handleDragonDetail(dragonId) {
+        try {
+            console.log(dragonId)
+            const product = await api.get(`/${dragonId}`);
+            setDragonDetail(product.data);
+            console.log(product.data)
 
-    //     } catch (error) {
-    //         return;
-    //     }
-    //     navigate(`/produto/${productId}`)
-    // }
+        } catch (error) {
+            return;
+        }
+        navigate(`/dragon/${dragonId}`)
+    }
 
     // function handleLogoff() {
     //     setToken('');
@@ -75,14 +77,14 @@ function Main() {
             </header>
             <main className='main'>
                 <div className='main__dragons'>
-                        {dragons?.map((dragon) => (
-                            <div className='cursor-pointer' key={dragon.id}>
-                                <DragonCard
-                                    dragonImage={dragon.imageUrl || UnavailableImage}
-                                    dragonName={dragon.name}
-                                />
-                            </div>
-                        ))}
+                    {dragons?.map((dragon) => (
+                        <div className='cursor-pointer' key={dragon.id} onClick={() => handleDragonDetail(dragon.id)}>
+                            <DragonCard
+                                dragonImage={dragon.imageUrl || UnavailableImage}
+                                dragonName={dragon.name}
+                            />
+                        </div>
+                    ))}
                 </div>
                 <button className="button main__add-button cursor-pointer transform">Adicionar dragão</button>
 

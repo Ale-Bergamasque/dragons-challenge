@@ -1,0 +1,26 @@
+@import url('../../css/global.css');
+
+.secondary-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+
+    padding: 20px 120px;
+
+    font-weight: var(--font-weight-500);
+    font-size: var(--font-size-20);
+    line-height: var(--line-height-23);
+
+    color: var(--dark-gray);
+
+    background-color: var(--background-header-color);
+}
+
+.simplified-header__back {
+    position: absolute;
+    cursor: pointer;
+    top: 40%;
+    left: 1%;
+    z-index: 1
+}

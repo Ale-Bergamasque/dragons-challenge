@@ -4,7 +4,7 @@ import { Navigate, Outlet, Route, Routes } from 'react-router-dom';
 import Main from './pages/Main';
 // import MyProducts from './pages/MyProducts';
 // import NotFound from './pages/NotFound';
-// import ProductDetail from './pages/ProductDetail';
+import DragonDetail from './pages/DragonDetail';
 // import RegisterProduct from './pages/RegisterProduct';
 // import SignUp from './pages/SignUp';
 
@@ -20,8 +20,8 @@ function MainRouter() {
             {/* <Route path='/login' element={<Login />} />
             <Route path='/registro' element={<SignUp />} /> */}
             <Route path='/' element={<Main />} />
-            {/* <Route path='/produto/:id' element={<ProductDetail />} />
-            <Route path='/not-found' element={<NotFound />} /> */}
+            <Route path='/dragon/:id' element={<DragonDetail />} />
+            {/* <Route path='/not-found' element={<NotFound />} /> */}
 
             {/* <Route element={<ProtectedRoutes redirectTo={'/'} />}>
                 <Route path='/meus-produtos' element={<MyProducts />} />
