@@ -8,7 +8,7 @@ function useUserProvider() {
     // const [storeName, setStoreName, removeStoreName] = useLocalStorage('storeName');
     const [dragons, setDragons] = useState([]);
     // const [product, setProduct] = useState(null);
-    // const [productDetail, setProductDetail] = useState([]);
+    const [dragonDetail, setDragonDetail] = useState([]);
     // const [productSearch, setProductSearch] = useState([]);
 
     useEffect(() => {
@@ -24,7 +24,9 @@ function useUserProvider() {
     }, []);
 
     return {
-        dragons  
+        dragons,
+        dragonDetail,
+        setDragonDetail
     }
 }
 
