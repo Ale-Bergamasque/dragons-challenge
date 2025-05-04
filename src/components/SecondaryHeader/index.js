@@ -1,5 +1,5 @@
-import './styles.css';
 import BackIcon from '../../assets/left_arrow_icon.png';
+import './styles.css';
 
 export default function SecondaryHeader({ pageBack }) {
     return (

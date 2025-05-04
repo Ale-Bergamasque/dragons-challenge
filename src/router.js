@@ -5,7 +5,7 @@ import Main from './pages/Main';
 // import MyProducts from './pages/MyProducts';
 // import NotFound from './pages/NotFound';
 import DragonDetail from './pages/DragonDetail';
-// import RegisterProduct from './pages/RegisterProduct';
+import CreateDragon from './pages/CreateDragon';
 // import SignUp from './pages/SignUp';
 
 // function ProtectedRoutes({ redirectTo }) {
@@ -21,11 +21,11 @@ function MainRouter() {
             <Route path='/registro' element={<SignUp />} /> */}
             <Route path='/' element={<Main />} />
             <Route path='/dragon/:id' element={<DragonDetail />} />
+            <Route path='/create-dragon' element={<CreateDragon />} />
             {/* <Route path='/not-found' element={<NotFound />} /> */}
 
             {/* <Route element={<ProtectedRoutes redirectTo={'/'} />}>
                 <Route path='/meus-produtos' element={<MyProducts />} />
-                <Route path='/registrar-produto' element={<RegisterProduct />} />
                 <Route path='/editar-produto/:id' element={<RegisterProduct />} />
             </Route> */}
         </Routes>

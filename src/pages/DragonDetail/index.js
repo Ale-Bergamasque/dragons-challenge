@@ -1,12 +1,12 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import useUser from '../../hooks/useUser';
-import DragonDetailCard from '../../components/DragonDetailCard';
-import SecondaryHeader from '../../components/SecondaryHeader'
 import UnavailableImage from '../../assets/unavailable_image.jpg';
+import DragonDetailCard from '../../components/DragonDetailCard';
+import SecondaryHeader from '../../components/SecondaryHeader';
+import useUser from '../../hooks/useUser';
 import './styles.css';
 
-function Main() {
+function DragonDetail() {
     const { dragonDetail } = useUser();
     const [formattedDate, setFormattedDate] = useState('');
     const navigate = useNavigate();
@@ -35,4 +35,4 @@ function Main() {
     );
 }
 
-export default Main;
+export default DragonDetail;
