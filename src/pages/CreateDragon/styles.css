@@ -1,0 +1,124 @@
+@import url('../../css/global.css');
+
+.form-create-dragon {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    padding: 32px 120px 164px 120px;
+}
+
+.form-create-dragon__inputs {
+    width: 100%;
+
+    padding: 32px 24px;
+    margin-bottom: 40px;
+
+    border-radius: 6px;
+    background-color: var(--white-ice);
+}
+
+.form-create-dragon label {
+    font-weight: var(--font-weight-600);
+    font-size: var(--font-size-16);
+    line-height: var(--line-height-18);
+
+    color: var(--dark-gray);
+}
+
+.form-create-dragon__inputs h1 {
+    margin-bottom: 24px;
+
+    font-weight: var(--font-weight-600);
+    font-size: var(--font-size-24);
+    line-height: var(--line-height-28);
+
+    color: var(--dark-gray);
+}
+
+.form-create-dragon__inputs-fist-line {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    margin-bottom: 64px;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    margin-bottom: 20px;
+}
+
+.label {
+    margin-bottom: 5px;
+}
+
+.input-text {
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.input-photo {
+    width: 160px;
+    display: flex;
+    flex-direction: column;
+}
+
+.input-photo__label {
+    width: 160px;
+    height: 160px;
+    display: flex;
+
+    margin-top: 4px;
+
+    cursor: pointer;
+    font-family: 'Public Sans', sans-serif;
+    color: #F8F8F8;
+
+    border: 1px dotted var(--dark-gray);
+    background-color: #F8F8F8;
+    background-image: url(../../assets/photo_icon.png);
+
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.img-upload {
+    width: 158px;
+    height: 158px;
+}
+
+.input-photo span {
+    position: absolute;
+    bottom: 12px;
+    font-weight: var(--font-weight-500);
+    font-size: var(--font-size-16);
+    line-height: var(--line-height-18);
+
+    color: var(--dark-gray);
+}
+
+input[type=file] {
+    display: none;
+}
+
+.form-create-dragon__btns {
+    display: flex;
+    align-items: center;
+}
+
+.form-create-dragon__btn {
+    width: 200px;
+    padding: 14px 16px;
+    margin-left: 32px;
+}
+
+.disabled {
+    border: 2px solid var(--light-pink);
+    color: var(--light-pink);
+}

@@ -7,68 +7,20 @@ import api from '../../services/api';
 import './styles.css';
 
 function Main() {
-    const { dragons, dragonDetail, setDragonDetail } = useUser();
+    const { dragons, setDragonDetail } = useUser();
     const navigate = useNavigate();
     const [paginationParam, setPaginationParam] = useState({});
     const paginationLimit = 8;
 
-    // useEffect(() => {
-    //     handlePagination(1)
-    // }, [productSearch]);
-
-    // function handlePagination(page) {
-    //     setPaginationParam({
-    //         start: (page - 1) * paginationLimit,
-    //         end: page * paginationLimit
-    //     });
-    // }
-
-    // function handleReturnProductWithoutFilter() {
-    //     setProductSearch(products);
-    // }
-
-    // function handleNavigate(path) {
-    //     token ? navigate(`/${path}`) : navigate('/login');
-    // }
-
-    // function handleFilter(e) {
-    //     if (e.key !== 'Enter') {
-    //         return;
-    //     }
-
-    //     let search = e.target.value;
-
-    //     if (!search || search.trim() === '') {
-    //         setProductSearch(products);
-    //         return;
-    //     }
-
-    //     const productsFilter = products?.filter(product => {
-    //         return product?.product_name.toLowerCase().includes(search.toLowerCase());
-    //     });
-    //     setProductSearch(productsFilter);
-
-    //     e.target.value = ''
-    // }
-
     async function handleDragonDetail(dragonId) {
         try {
-            console.log(dragonId)
-            const product = await api.get(`/${dragonId}`);
+            const product = await api().get(`/${dragonId}`);
             setDragonDetail(product.data);
-            console.log(product.data)
-
         } catch (error) {
             return;
         }
         navigate(`/dragon/${dragonId}`)
     }
-
-    // function handleLogoff() {
-    //     setToken('');
-    //     setUserId('');
-    //     setStoreName('');
-    // }
 
     return (
         <div className='container'>
@@ -86,7 +38,7 @@ function Main() {
                         </div>
                     ))}
                 </div>
-                <button className="button main__add-button cursor-pointer transform">Adicionar dragão</button>
+                <button className="button main__add-button cursor-pointer transform" onClick={() => navigate('/create-dragon')}>Adicionar novo dragão</button>
 
             </main>
         </div>

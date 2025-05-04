@@ -34,9 +34,10 @@
     cursor: pointer;
 
     border-radius: 30px;
+    border: 2px solid var(--pink);
 
-    color: var(--white-ice);
-    background-color: var(--pink);
+    color: var(--pink);
+    background-color: var(--white-ice);
 }
 
 .cursor-pointer {

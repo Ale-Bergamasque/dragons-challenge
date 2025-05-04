@@ -1,6 +1,6 @@
 import './styles.css';
 
-export default function DragonCard({ dragonImage, dragonName, dragonCreateDate, dragonType }) {
+export default function DragonDetailCard({ dragonImage, dragonName, dragonCreateDate, dragonType }) {
 
     return (
         <div className="card">
