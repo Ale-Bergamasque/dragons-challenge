@@ -1,33 +1,16 @@
-import { Navigate, Outlet, Route, Routes } from 'react-router-dom';
-// import useUser from './hooks/useUser';
-// import Login from './pages/Login';
+import { Route, Routes } from 'react-router-dom';
 import Main from './pages/Main';
-// import MyProducts from './pages/MyProducts';
-// import NotFound from './pages/NotFound';
-import DragonDetail from './pages/DragonDetail';
+
 import CreateDragon from './pages/CreateDragon';
-// import SignUp from './pages/SignUp';
+import DragonDetail from './pages/DragonDetail';
 
-// function ProtectedRoutes({ redirectTo }) {
-//     const { token } = useUser();
-
-//     return token ? <Outlet /> : <Navigate to={redirectTo} />
-// }
 
 function MainRouter() {
     return (
         <Routes>
-            {/* <Route path='/login' element={<Login />} />
-            <Route path='/registro' element={<SignUp />} /> */}
             <Route path='/' element={<Main />} />
             <Route path='/dragon/:id' element={<DragonDetail />} />
             <Route path='/create-dragon' element={<CreateDragon />} />
-            {/* <Route path='/not-found' element={<NotFound />} /> */}
-
-            {/* <Route element={<ProtectedRoutes redirectTo={'/'} />}>
-                <Route path='/meus-produtos' element={<MyProducts />} />
-                <Route path='/editar-produto/:id' element={<RegisterProduct />} />
-            </Route> */}
         </Routes>
     );
 }

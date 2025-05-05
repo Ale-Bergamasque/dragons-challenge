@@ -1,25 +1,18 @@
 @import url('../../css/global.css');
 
-.form-create-dragon {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+.form-edit-dragon {
+    width: 50%;
+    padding: 20px;
 
-    padding: 32px 120px 164px 120px;
-}
-
-.form-create-dragon__inputs {
-    width: 100%;
-
-    padding: 32px 24px;
-    margin-bottom: 40px;
-
-    border-radius: 6px;
     background-color: var(--white-ice);
+    border-radius: 6px;
 }
 
-.form-create-dragon label {
+.form-edit-dragon__inputs {
+    padding: 32px 24px;
+}
+
+.form-edit-dragon label {
     font-weight: var(--font-weight-600);
     font-size: var(--font-size-16);
     line-height: var(--line-height-18);
@@ -27,7 +20,7 @@
     color: var(--dark-gray);
 }
 
-.form-create-dragon__inputs h1 {
+.form-edit-dragon__inputs h1 {
     margin-bottom: 24px;
 
     font-weight: var(--font-weight-600);
@@ -37,7 +30,7 @@
     color: var(--dark-gray);
 }
 
-.form-create-dragon__inputs-fist-line {
+.form-edit-dragon__inputs-fist-line {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -59,12 +52,6 @@
     width: 100%;
     padding: 10px;
     box-sizing: border-box;
-}
-
-.input-photo {
-    width: 160px;
-    display: flex;
-    flex-direction: column;
 }
 
 .input-photo__label {
@@ -91,29 +78,17 @@
     height: 158px;
 }
 
-.input-photo span {
-    position: absolute;
-    bottom: 12px;
-    font-weight: var(--font-weight-500);
-    font-size: var(--font-size-16);
-    line-height: var(--line-height-18);
-
-    color: var(--dark-gray);
-}
-
-input[type=file] {
-    display: none;
-}
-
-.form-create-dragon__btns {
+.form-edit-dragon__btns {
     display: flex;
     align-items: center;
+    justify-content: space-between;
+
+    padding: 0px 24px;
 }
 
-.form-create-dragon__btn {
+.form-edit-dragon__btn {
     width: 200px;
     padding: 14px 16px;
-    margin-left: 32px;
 }
 
 .disabled {

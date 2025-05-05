@@ -2,9 +2,6 @@ import { useEffect, useState } from 'react';
 import api from '../services/api';
 
 function useUserProvider() {
-    // const [token, setToken, removeToken] = useLocalStorage('token');
-    // const [userId, setUserId, removeUserId] = useLocalStorage('userId');
-    // const [storeName, setStoreName, removeStoreName] = useLocalStorage('storeName');
     const [dragons, setDragons] = useState([]);
     const [dragonDetail, setDragonDetail] = useState([]);
 
@@ -13,8 +10,9 @@ function useUserProvider() {
             const sortedData = response.data.sort((a, b) =>
                 a.name.localeCompare(b.name)
             );
-            setDragons(response.data);
+            setDragons(sortedData);
         }).catch((error) => {
+            console.error(error)
             return;
         });
         return;
