@@ -1,87 +1,20 @@
-import { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import CancelEditModal from '../../components/CancelEditModal';
-import SecondaryHeader from '../../components/SecondaryHeader';
-import useUser from '../../hooks/useUser';
-import api from '../../services/api';
-
+import { useEffect } from 'react';
 import './styles.css';
 
-function CreateDragon() {
-    const { dragons, setDragons } = useUser();
-    const [form, setForm] = useState({
-        dragonName: '',
-        dragonType: '',
-        dragonImage: '',
-        history: ''
-    });
-    const [modalCancelCreateOpen, setModalCancelCreateOpen] = useState(false);
-    const [formDisabled, setFormDisabled] = useState(true);
-    const navigate = useNavigate();
 
-    function handleChangeInputValue(e) {
-        setForm({ ...form, [e.target.name]: e.target.value });
-    }
-
-    function handleCleanForm() {
-        setForm({
-            dragonName: '',
-            dragonType: '',
-            dragonImage: '',
-            history: ''
-        });
-    }
+function EditDragonModel({ form, formDisabled, setFormDisabled, handleSubmitEditDragon, handleCloseEditModal, handleChangeInputValue }) {
 
     useEffect(() => {
         const isNameFilled = form.dragonName?.toString().trim().length > 0;
         setFormDisabled(!isNameFilled);
     }, [form.dragonName]);
 
-    async function handleSubmitCreateDragon(e) {
-        e.preventDefault();
-
-        if (formDisabled) return;
-
-        try {
-            const payload = {
-                createdAt: new Date().toISOString(),
-                name: form.dragonName,
-                type: form.dragonType,
-                histories: form.history ? [form.history] : []
-            };
-
-            if (form.dragonImage) {
-                payload.imageUrl = form.dragonImage;
-            }
-
-            const response = await api().post('/', payload);
-
-            setDragons([...dragons, response.data]);
-            handleCleanForm();
-        } catch (error) {
-            console.log(error)
-            return;
-        }
-    }
-
-    function handleDiscardCreatetModal() {
-        handleCleanForm();
-        handleCloseCancelCreateModal();
-    }
-
-    function handleCloseCancelCreateModal() {
-        setModalCancelCreateOpen(false);
-    }
-
     return (
-        <div className='container'>
-            <SecondaryHeader
-                pageBack={() => navigate('/')}
-            />
-            <form className='form-create-dragon' onSubmit={handleSubmitCreateDragon}>
-                <div className='form-create-dragon__inputs'>
-                    <h1>Criar novo dragão</h1>
-                    <div className='form-create-dragon__inputs-fist-line'>
+        <div className='modal-backdrop'>
+            <form className='form-edit-dragon' onSubmit={handleSubmitEditDragon}>
+                <div className='form-edit-dragon__inputs'>
+                    <h1>Editar dragão</h1>
+                    <div className='form-edit-dragon__inputs-fist-line'>
                         <div className='input-group'>
                             <label htmlFor='dragonName' className='label'>Nome</label>
                             <input
@@ -136,29 +69,23 @@ function CreateDragon() {
                         </div>
                     </div>
                 </div>
-                <div className='form-create-dragon__btns'>
+                <div className='form-edit-dragon__btns'>
                     <button
-                        className={formDisabled ? 'button form-create-dragon__btn disabled' : 'button form-create-dragon__btn transform'}
-                        onClick={() => navigate('/')}
+                        className={formDisabled ? 'button form-edit-dragon__btn disabled' : 'button form-edit-dragon__btn transform'}
                         type='submit'
                         disabled={formDisabled}>
-                        Criar dragão
+                        Salvar Alterações
                     </button>
                     <button
-                        className='button form-create-dragon__btn transform'
+                        className='button form-edit-dragon__btn transform'
                         type='button'
-                        onClick={() => setModalCancelCreateOpen(true)}>
+                        onClick={handleCloseEditModal}>
                         Cancelar
                     </button>
                 </div>
             </form>
-            {modalCancelCreateOpen &&
-                <CancelEditModal
-                    discardEdition={handleDiscardCreatetModal}
-                    onClose={handleCloseCancelCreateModal}
-                />}
         </div>
     );
 }
 
-export default CreateDragon;
+export default EditDragonModel;
